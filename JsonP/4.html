@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域请求测试</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+    //同源策略：跨域请求被禁止
+    /*
+    * 已拦截跨源请求：同源策略禁止读取位于 http://api.sinocomic.com/sinocomic/?service=Book.BookReadRankingList 的远程资源。（原因：CORS 头缺少 'Access-Control-Allow-Origin'）。
+    */
+
+    $.ajax({
+        url:'http://api.sinocomic.com/sinocomic/?service=Book.BookReadRankingList',
+        type:'GET',
+        data:{},
+        dataType:'json',
+        success:function(data){
+            //如果未指定dataType:需要使用eval转换JSON字符串为json对象
+//                  var data = eval("("+data+")");
+            //方式1：
+            $.each(data,function(k,v){
+                console.log(v.username);
+            });
+            //方式2：
+            $(data).each(function(k,v){
+                console.log(v.age);
+            });
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+            console.log("Error")
+        }
+    });
+</script>
+</body>
+</html>

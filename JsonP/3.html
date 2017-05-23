@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用jquery的$.getJSON发送ajax请求</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+    $.getJSON('http://192.168.91.128/JsonP/server.php',function(data){
+        $(data).each(function(k,v){
+            console.log(v.age);
+        })
+    });
+</script>
+</body>
+
+</html>

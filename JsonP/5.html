@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSONP跨域请求</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+    $.ajax({
+        url:'http://192.168.1.105/www/test/jsonPData.php',
+        type:'GET',
+        data:{},
+        dataType:'jsonp',
+        jsonp:'callback',
+        jsonpCallback:'jsonpCallback',
+        success:function(data){
+            //方式1：
+            $.each(data,function(k,v){
+                console.log(v.username);
+            });
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+            console.log("Error")
+        }
+    });
+
+
+    $.getJSON('http://192.168.1.105/www/test/jsonPData.php?callback=?',function(data){
+        //方式1：
+        $.each(data,function(k,v){
+            console.log(v.age);
+        });
+//        console.log(data); //jQuery321008535079055668704_1495522620646
+    });
+</script>
+</body>
+</html>
