@@ -1,0 +1,21 @@
+ul ,li { margin: 0; padding: 0;} /*reset浏览器默认样式*/
+.nav-collapse { min-height: 60px; }/*设置导航的最小高度*/
+.nav-collapse ul { width:100%;list-style-type: none; background: #333333;}/*为导航设置*/
+.nav-collapse ul li { max-height: 40px; line-height: 40px; display: inline-block; background-color: #333333;}  /*设置li样式，这里需要特别注意，这里一定要将li的display设置为inline-block，这样项目才能在行内显示，千万不要是用float:left这样的语句，否则Responsive Nav插件会失效*/
+.nav-collapse ul li a{ width: 100%; height: 100%; text-decoration: none; color: #cccccc; display: block; text-align: center; font-weight: bold;}
+.nav-collapse ul li a:hover { background: #cccccc; color: #333333;} /*为链接设置样式*/
+/*大屏显示时，li的宽度要指定，否则大屏下会显示为100%宽度；*/
+@media screen and (min-width: 40em) {
+    .nav-collapse ul li { width: 18%; } /*这里的数字根据导航项目的数量自己计算得到；*/
+}
+/*为menu菜单设置简单样式，你也可以设置为图片*/
+.nav-toggle {
+    -moz-user-select: none;
+    background: #f43c12 url("./hamburger.gif") no-repeat scroll 50% 33%;
+    display: block;
+    float: right;
+    height: 55px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 70px;
+}
