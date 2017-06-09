@@ -54,5 +54,17 @@ $otherclass = new OtherClass;
 //$myclass->testArray(['a', 'b', 'c']);
 
 // 正确：输出 int(1)
-$myclass->testCallable('print_r',[1]);
+//$myclass->testCallable('print_r',[1]);
+
+//局部变量如果未声明，返回时会报undefined
+//function a(){
+////    $instance = '';
+//    if(false){
+//       $instance = 'good';
+//    }
+//    return $instance;
+//}
+//$result = a();
+//var_dump($result);
+
 
