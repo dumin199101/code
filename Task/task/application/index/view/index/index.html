@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加数据到Redis中的任务队列</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+     起始ID：<input type="text" value="1"   name="start"/>
+     结束ID：<input type="text" value="100"  name="end"/>
+     <button>添加到队列</button>
+     <script>
+          $("button").click(function(){
+              var start = $("input[name='start']").val();
+              var end = $("input[name='end']").val();
+              //发起异步请求：
+              $.post("{:url('index/index/push')}",{start:start,end:end},function(data){
+                  if(data.code==1){
+                      alert(data.msg);
+                  }else{
+                      alert("Error");
+                  }
+              },'json');
+          });
+
+     </script>
+</body>
+</html>
