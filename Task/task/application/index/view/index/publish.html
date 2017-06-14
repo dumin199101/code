@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过publish,subscribe方式模拟队列</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+起始任务ID：<input type="text" value="1"   name="start"/>
+结束任务ID：<input type="text" value="100"  name="end"/>
+<button>发布任务</button>
+<script>
+    $("button").click(function(){
+        var start = $("input[name='start']").val();
+        var end = $("input[name='end']").val();
+        //发起异步请求：
+        $.post("{:url('index/index/publish')}",{start:start,end:end},function(data){
+            if(data.code==1){
+                alert(data.msg);
+            }else{
+                alert("Error");
+            }
+        },'json');
+    });
+
+</script>
+</body>
+</html>

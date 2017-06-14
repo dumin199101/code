@@ -46,4 +46,20 @@ class Index extends Controller
             $this->redis->set("browse:" . $id,0);
         }
     }
+
+    //使用订阅发布模式
+    public function publish(){
+        if(request()->isPost()){
+            if(request()->isAjax()){
+                $start = input('post.start');
+                $end = input('post.end');
+                for($i=$start;$i<=$end;$i++){
+                    $this->redis->publish("room1",$i);
+                }
+                $this->success('数据已经通过publish方式发布');
+            }
+        }else{
+            return $this->fetch();
+        }
+    }
 }
