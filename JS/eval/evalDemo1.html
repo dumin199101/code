@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	     //使用eval解析alert
+         // var str = "alert('hello word')";
+         // eval(str);
+
+         //使用eval函数解析json字符串
+         var json = '{"name":"dumin","age":22}';
+         var json_obj = eval('('+json+')');
+         console.log(json_obj);
+
+	</script>
+</body>
+</html>

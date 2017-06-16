@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+         //call方法
+         function Cat(){}
+         Cat.prototype = {
+         	name:'mimi',
+         	say:function(){
+         		console.log('miaomiao');
+         	},
+         	eat:function(){
+         		console.log('eat meat');
+         	},
+         	sleep:function(name,age){
+         		console.log(name+' will sleep in 9:00,age is: '+age);
+         	}
+         }
+
+         function Dog(){
+         }
+
+         Dog.prototype.name = 'yaya';
+
+         var cat = new Cat();
+         cat.say();
+
+         var dog = new Dog();
+         dog.name = 'wangwang';
+         dog.age = 2;
+
+         cat.eat.call(dog); 
+         cat.sleep.call(dog,dog.name,dog.age);
+         
+
+	</script>
+</body>
+</html>

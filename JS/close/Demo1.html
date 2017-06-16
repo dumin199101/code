@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+        function f1(){
+        	//定义一个局部变量，我如果想在外边获取这个局部变量
+        	var a = 10;
+        	function f2(){
+        		console.log(a);
+        	}
+        	return f2;
+        }
+
+        (f1())();
+
+        (function(){
+        	var a = 20;
+        	function show(){
+        		console.log(a);
+        	}
+        	return show;
+        }())();
+	</script>
+</body>
+</html>

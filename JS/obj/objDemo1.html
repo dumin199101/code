@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+         //js创建对象的方法
+         //方式一：字面量法
+         var person = {name:'dudu',age:22,sex:'male',show:function(){console.log('字面量法show方法调用')}}
+
+         console.log("name:"+person.name+",age:"+person.age+",sex:"+person.sex);
+         person.show();
+
+         //方式二：构造法
+         function Person(name,age,sex){
+         	 this.name = name;
+         	 this.age = age;
+         	 this.sex = sex;
+         	 this.show = function(){
+         	 	console.log('构造函数show方法调用:name:'+this.name+",age:"+this.age+",sex:"+this.sex);
+         	 }
+         	 return this;
+         }
+
+         var person1 = new Person('du',22,'female');
+         person1.show();
+
+         //方式三：工厂模式
+         function Student(name,age,sex){
+             var obj = new Object();
+             obj.name = name;
+             obj.age = age;
+             obj.sex = sex;
+             obj.show = function(){
+             	console.log('工厂模式show方法调用:name:'+obj.name+",age:"+this.age+",sex:"+this.sex);
+             }
+             return obj;
+         }
+
+         var student = new Student('dud',24,'male');
+         student.show();
+
+         //方式四：原型法
+         function Teacher(){
+
+         }
+
+         Teacher.prototype.name = 'dudu';
+         Teacher.prototype.age = 22;
+         Teacher.prototype.sex = 'female';
+         Teacher.prototype.show = function() {
+         	 console.log("原型法show方法调用:name:"+this.name+",age:"+this.age+",sex:"+this.sex);
+         };
+
+         var teacher = new Teacher();
+         teacher.show();
+
+         //方式五：原型法2
+         function Worker(){}
+
+         Worker.prototype = {
+         	name:'du',
+         	age:22,
+         	sex:'female',
+         	show:function(){
+         		console.log("原型法show方法调用:name:"+this.name+",age:"+this.age+",sex:"+this.sex)
+         	}
+         }
+
+         var worker = new Worker();
+         worker.show();
+
+         //方式六：原型法3 传递参数
+         //每个函数对象都有一个prototype属性，代表了对象的原型
+         //每个实例化对象都有一个__proto__的内部隐藏属性，指向原型对象
+         // function Cat(name,age){
+         // 	this.name = name;
+         // 	this.age = age;
+         // 	this.__proto__=Cat.prototype; 
+         // }
+
+         
+
+
+
+
+
+	</script>
+</body>
+</html>

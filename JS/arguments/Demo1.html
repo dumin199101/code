@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+     
+        function show(){
+             
+             // 使用arguments数组遍历参数：
+             for(var i=0;i<arguments.length;i++){
+             	console.log(arguments[i]);
+             }
+
+             //arguments对象遍历参数
+             for(var i in arguments){
+             	console.log(arguments[i]);
+             }
+        }   
+
+        show(1,2,3);
+
+
+     
+
+	</script>
+</body>
+</html>

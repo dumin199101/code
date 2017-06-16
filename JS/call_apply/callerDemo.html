@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    //functionName.caller 返回函数的调用者
+	    //对于函数来说，caller 属性只有在函数执行时才有定义。如果函数是由顶层调用的，那么 caller 包含的就是 null 。如果在字符串上下文中使用 caller 属性，那么结果和 functionName.toString 一样，也就是说，显示的是函数
+        function show(){
+        	if(show.caller){
+                console.log(show.caller);
+                // console.log(show.caller.toString());
+        	}else{
+        		console.log("函数直接执行");
+        	}
+        }
+
+        function handleShow(){
+        	show();
+        }
+
+        handleShow();
+        show();
+	</script>
+</body>
+</html>

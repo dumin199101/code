@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    //callee是arguments 的一个属性成员，它表示对函数对象本身的引用
+	    //Function.toString() 可以实现 Function 的反编译功能
+        function calleeLengthDemo(args1,args2){
+        	console.log(arguments.callee);
+            console.log(arguments.callee.toString());
+
+            if(arguments.length==arguments.callee.length){
+            	 console.log("形式参数跟实际参数一致");
+            }else{
+            	console.log("实际参数的长度:"+arguments.length);
+            	console.log("形式参数的长度:"+arguments.callee.length);
+            }
+        }
+
+        calleeLengthDemo(1);
+
+        //使用callee的实例,完成递归：
+        var sum = function(n){
+            if(n==1) return 1;
+            else return n+arguments.callee(n-1);
+        }
+
+        console.log(sum(2))
+
+
+	</script>
+</body>
+</html>

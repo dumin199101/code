@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   <script type="text/javascript">
+        //js创建对象的方式：
+        //方式一：字面量创建对象
+       var obj = {
+           name:"dumin",
+           age:22,
+           show:function(){
+               console.log("字面量创建对象:name:"+this.name+",age:"+this.age);
+           }
+       }
+
+       obj.show();
+
+       //方式二：工厂方式创建对象：
+       function Person(name,age){
+           var obj = new Object();
+           obj.name = name;
+           obj.age = age;
+           obj.show = function(){
+               console.log("工厂方式创建对象:name:"+this.name+",age:"+this.age);
+           }
+           return obj;
+       }
+
+       var person = new Person('re',10);
+       person.show();
+
+       //方式三：构造方法创建对象：
+       function Student(name,age){
+           this.name = name;
+           this.age = age;
+           this.show = function(){
+               console.log("构造方法创建对象：name:"+this.name+",age:"+this.age);
+           }
+//           return this; 默认返回的就是this
+       }
+
+       var student = new Student('du',4);
+       student.show();
+
+       //方式四：原型法创建对象：
+       function Worker(options){
+           this._init(options);
+       }
+
+       Worker.prototype = {
+           _init:function(options){
+               this.name = options.name;
+               this.age = options.age;
+           },
+           show:function(){
+              console.log("原型法创建对象：name:"+this.name+",age:"+this.age);
+           }
+       }
+
+       var worker = new Worker({
+           name:'dumin',
+           age:24
+       });
+
+       worker.show();
+
+
+   </script>
+</body>
+</html>

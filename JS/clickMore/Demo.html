@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ajax点击加载更多</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <style type="text/css">
+         li{list-style: none;}
+         .items{width:500px;border: 1px solid red;margin: 20px auto;}
+         .items ul{margin:0;padding:0}
+        .items ul li{
+            border-bottom: 1px dashed green;
+            text-align:center;
+            padding:5px;
+        }
+
+        #more{
+            margin:20px 0;
+            text-align:center;
+        }
+
+        #more span{
+            padding:5px 20px;
+            background:#ccc;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+     <div class="items">
+         <ul>
+             <li>标题1</li>
+             <li>标题2</li>
+             <li>标题3</li>
+             <li>标题4</li>
+             <li>标题5</li>
+         </ul>
+         <div id="more"><span>加载更多</span></div>
+     </div>
+     <script>
+          $(function(){
+
+               $("#more").click(function(){
+                  $(".items ul").append('<li>标题6</li>');
+               });
+          })
+     </script>
+</body>
+</html>

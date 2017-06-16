@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	     //利用call apply 实现继承
+         function Person(name,age){
+             this.name = name;
+             this.age = age;
+         }
+
+         function Student(name,age,grade){
+            Person.apply(this,arguments);
+            // Person.call(this,name,age); 
+         	this.grade = grade;
+         }
+
+         var student = new Student("dudu",22,'一年级');
+
+         console.log("name:"+student.name+",age:"+student.age+",grade:"+student.grade);
+
+
+
+	</script>
+</body>
+</html>
