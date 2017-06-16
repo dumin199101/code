@@ -72,14 +72,51 @@
          var worker = new Worker();
          worker.show();
 
-         //方式六：原型法3 传递参数
-         //每个函数对象都有一个prototype属性，代表了对象的原型
-         //每个实例化对象都有一个__proto__的内部隐藏属性，指向原型对象
+         //方式六：原型法+构造法
+         //每个函数内部都有一个prototype对象
+         //每个实例化对象都有一个__proto__的内部隐藏属性（内部原型），指向原型对象，这就是原型链
+         // 方法存储到原型对象中，减少占用空间，可以共用方法
          // function Cat(name,age){
          // 	this.name = name;
          // 	this.age = age;
-         // 	this.__proto__=Cat.prototype; 
+         // 	this.__proto__=Cat.prototype;
          // }
+         // Cat.prototype.show = function(){}
+
+         function Coder(name,age){
+             this.name = name;
+             this.age = age;
+         }
+
+         Coder.prototype = {
+             show:function(){
+                 console.log(this.name+"----"+this.age);
+             }
+         };
+
+         var coder = new Coder("dudu",22);
+         coder.show();
+
+
+         //方式七：参数更改
+         function Consumer(options){
+             this.init(options);
+         }
+
+         Consumer.prototype = {
+             init:function(options){
+                 this.age = options.age;
+                 this.name = options.name;
+             },
+             show:function(){
+                 console.log(this.name+"----"+this.age);
+             }
+         };
+         var consumer = new Consumer({
+             name:'wangwei',
+             age:22
+         });
+         consumer.show();
 
          
 
