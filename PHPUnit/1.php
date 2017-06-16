@@ -69,7 +69,18 @@ $callback = function() use(&$msg) {
 $msg = "Hello World";
 callback($callback);*/
 
-//
+//闭包改进:在函数中声明另一个函数，获取函数的内部变量
+/*function callback(){
+    $msg = "Hello Everyone";
+    $callback = function() use($msg) {
+        print "This is a closure use string value lazy bind, msg is: $msg. <br />\n";
+    };
+    return $callback;
+}
+$result = callback();
+$result();*/
+
+
 
 
 
